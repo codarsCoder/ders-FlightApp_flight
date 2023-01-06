@@ -7,7 +7,7 @@ class Flight(models.Model):
     departure_city = models.CharField(max_length=30)
     arrival_city = models.CharField(max_length=30)
     date_of_departure = models.DateField()
-    etd = models.TimeField()
+    etd = models.TimeField() # kalkış saati
     
     def __str__(self):
         return f'{self.flight_number} - {self.departure_city} - {self.arrival_city}'
@@ -26,7 +26,8 @@ class Passenger(models.Model):           # cooper - jason - murat ...
 
 class Reservation(models.Model): 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    passenger = models.ManyToManyField(Passenger, related_name="reservations")
-    flight = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name="reservation")
+    passenger = models.ManyToManyField(Passenger, related_name="reservations") ##BURADAKİ EŞLEŞTİRİLMİŞ DATALARI YEN BİR TABLO OLUŞTURUP ORADA TUTUYOR
+
+    flight = models.ForeignKey(Flight, on_delete=models.CASCADE, related_name="reservation") # reservation ile artık bir fight ın rezervasyonu varsa görebileceğiz  (flight parent oluyor)
     
     
