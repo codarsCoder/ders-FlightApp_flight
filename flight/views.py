@@ -10,7 +10,7 @@ from datetime import datetime, date
 class FlightView(viewsets.ModelViewSet):
     queryset = Flight.objects.all()
     serializer_class = FlightSerializer
-    permission_classes = (IsStafforReadOnly,)  # bu ermission custom olrak yazıld permissions.py bak
+    permission_classes = (IsStafforReadOnly,)  # bu ermission custom olrak yazıldı permissions.py bak
     
     def get_serializer_class(self):  ## * kullanıcı staff ise serializerini ayrıntılı bir şekilde gösteren bir serializer ile değiştireceğiz bunnun için serializeri gösteren get_serializer_class metodunu override ediyoruz
         serializer = super().get_serializer_class()  ##  parentin serializerini aldık normalde FlightSerializer  olarak yazılı
