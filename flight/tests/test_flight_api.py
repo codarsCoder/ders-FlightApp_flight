@@ -12,7 +12,7 @@ class FlightTestCase(APITestCase):
     today = date.today()
     
     def setUp(self):
-        self.factory = APIRequestFactory()
+        self.factory = APIRequestFactory() ## her testte alttaki obje oluşturulacak testleri ayrı tablolar oluşturarak yapar iş bitince siler 
         self.flight = Flight.objects.create(   ## bu kısım olmadanda test yapılabilir şimdi biz hazır bir obje ıluşturduk
             flight_number='123ABC',
             operation_airlines='THY',
